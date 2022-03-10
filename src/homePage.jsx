@@ -71,7 +71,7 @@ class HomePage extends React.Component {
             )
     }
     onDelete(id, type) {
-        fetch(constant.BASE_URL + `categorymasters/delete/${id}`
+        fetch(constant.BASE_URL + `${type}/delete/${id}/`
             // + new URLSearchParams({
             //     type: type,
             //     id: id
@@ -89,11 +89,13 @@ class HomePage extends React.Component {
         window.location.replace("http://" + window.location.host);
     }
     onRestore(id, type) {
-        fetch(constant.BASE_URL + "restore-temp?"
-            + new URLSearchParams({
-                type: type,
-                id: id
-            }),
+        
+        fetch(constant.BASE_URL + `${type}/restore/${id}/`
+            // + new URLSearchParams({
+            //     type: type,
+            //     id: id
+            // })
+            ,
             {
                 method: 'POST',
             }
@@ -152,11 +154,11 @@ class HomePage extends React.Component {
                             <Link className='link-icon' to={`create-category?type=sub&id-parent=${item.categoryMaster._id}`}><PlusCircle class='icon-inlink' /></Link>
                             <Link className='link-icon' to={`create-category?type=master&id=${item.categoryMaster._id}`}><PencilSquare class='icon-inlink' /></Link>
                             {this.state.showDeleteBtn && (
-                                <button className='buton-transparent' onClick={() => this.onDelete(item.categoryMaster._id, 'master')}><Trash /></button>
+                                <button className='buton-transparent' onClick={() => this.onDelete(item.categoryMaster._id, 'categorymasters')}><Trash /></button>
                             )}
 
                             {this.state.showDeleteBtn && _.isEqual(classDeleted, "deteted") && (
-                                <button className='buton-transparent' onClick={() => this.onRestore(item.categoryMaster._id, 'master')}><ArrowCounterclockwise /></button>
+                                <button className='buton-transparent' onClick={() => this.onRestore(item.categoryMaster._id, 'categorymasters')}><ArrowCounterclockwise /></button>
                             )}
                         </div>
                         <div id={`collapse${item.categoryMaster._id}`}>
@@ -168,10 +170,10 @@ class HomePage extends React.Component {
                                             <Link className='link-icon' to={`create-tip?id-parent=${sub._id}`}><PlusCircle class='icon-inlink' /></Link>
                                             <Link className='link-icon' to={`create-category?type=sub&id=${sub._id}`}><PencilSquare class='icon-inlink' /></Link>
                                             {this.state.showDeleteBtn && (
-                                                <button className='buton-transparent' onClick={() => this.onDelete(sub._id, 'sub')}><Trash /></button>
+                                                <button className='buton-transparent' onClick={() => this.onDelete(sub._id, 'subcategories')}><Trash /></button>
                                             )}
                                             {this.state.showDeleteBtn && _.isEqual(classDeleted, "deteted") && (
-                                                <button className='buton-transparent' onClick={() => this.onRestore(sub._id, 'sub')}><ArrowCounterclockwise /></button>
+                                                <button className='buton-transparent' onClick={() => this.onRestore(sub._id, 'subcategories')}><ArrowCounterclockwise /></button>
                                             )}
                                         </div>
                                         {sub.note.map(tip => {
@@ -182,10 +184,10 @@ class HomePage extends React.Component {
                                                     ><Link className={`link-icon ${classDeleted}`} to={`view-tip?id=${tip._id}`}>{tip.name}</Link>
                                                         <Link className='link-icon' to={`create-tip?id=${tip._id}&id-parent=${sub._id}`}><PencilSquare class='icon-inlink' /></Link>
                                                         {this.state.showDeleteBtn && (
-                                                            <button className='buton-transparent' onClick={() => this.onDelete(tip._id, 'tip')}><Trash /></button>
+                                                            <button className='buton-transparent' onClick={() => this.onDelete(tip._id, 'notes')}><Trash /></button>
                                                         )}
                                                         {this.state.showDeleteBtn && _.isEqual(classDeleted, "deteted") && (
-                                                            <button className='buton-transparent' onClick={() => this.onRestore(tip._id, 'tip')}><ArrowCounterclockwise /></button>
+                                                            <button className='buton-transparent' onClick={() => this.onRestore(tip._id, 'notes')}><ArrowCounterclockwise /></button>
                                                         )}
                                                     </div>
                                                 </div>

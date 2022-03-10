@@ -57,7 +57,7 @@ class SearchResult extends React.Component {
         window.location.replace("http://" + window.location.host);
     }
     search() {
-        fetch(constant.BASE_URL + "find-tip?"
+        fetch(constant.BASE_URL + "search?"
             + new URLSearchParams({
                 strSearch: this.state.searchStr,
             }),
