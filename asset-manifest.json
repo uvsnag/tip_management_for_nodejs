@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tip_management_for_nodejs/static/css/main.7a57b6a2.chunk.css",
+    "main.js": "/tip_management_for_nodejs/static/js/main.b160fd95.chunk.js",
+    "main.js.map": "/tip_management_for_nodejs/static/js/main.b160fd95.chunk.js.map",
+    "runtime-main.js": "/tip_management_for_nodejs/static/js/runtime-main.016f1be9.js",
+    "runtime-main.js.map": "/tip_management_for_nodejs/static/js/runtime-main.016f1be9.js.map",
+    "static/js/2.59db2957.chunk.js": "/tip_management_for_nodejs/static/js/2.59db2957.chunk.js",
+    "static/js/2.59db2957.chunk.js.map": "/tip_management_for_nodejs/static/js/2.59db2957.chunk.js.map",
+    "static/js/3.8dac9e9e.chunk.js": "/tip_management_for_nodejs/static/js/3.8dac9e9e.chunk.js",
+    "static/js/3.8dac9e9e.chunk.js.map": "/tip_management_for_nodejs/static/js/3.8dac9e9e.chunk.js.map",
+    "index.html": "/tip_management_for_nodejs/index.html",
+    "static/css/main.7a57b6a2.chunk.css.map": "/tip_management_for_nodejs/static/css/main.7a57b6a2.chunk.css.map",
+    "static/js/2.59db2957.chunk.js.LICENSE.txt": "/tip_management_for_nodejs/static/js/2.59db2957.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.016f1be9.js",
+    "static/js/2.59db2957.chunk.js",
+    "static/css/main.7a57b6a2.chunk.css",
+    "static/js/main.b160fd95.chunk.js"
+  ]
+}
