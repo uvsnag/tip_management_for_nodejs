@@ -20,6 +20,7 @@ ReactDOM.render(
          <Route path="/view-tip" element={<ViewTip/>} />
          <Route path="/create-category" element={<CreateMaster/>} />
          <Route path="/create-tip" element={<CreateTip/>} />
+         <Route path="/view-tip/create-tip" element={<CreateTip/>} />
          <Route path="/search" element={<SearchResult/>} />
           
       </Routes>

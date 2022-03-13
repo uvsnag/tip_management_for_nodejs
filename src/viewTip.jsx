@@ -77,8 +77,9 @@ class ViewTip extends React.Component {
                 <div>
 
                     <div className="frame">
-                    <Button ><a href={`${urlBase}/create-tip?id=${tipDetail._id}&id-parent=${tipDetail.idParent}`}>
-                    Edit<PencilSquare className='icon-inlink'/></a></Button>
+                    {/* <Button ><a href={`${urlBase}/create-tip?id=${tipDetail._id}&id-parent=${tipDetail.idParent}`}> */}
+                    {/* Edit<PencilSquare className='icon-inlink'/></a></Button> */}
+                    <Link className='link-icon' to={`create-tip?id=${tipDetail._id}&id-parent=${tipDetail.idParent}`}>Edit<PencilSquare className='icon-inlink'/></Link>
                     <br/>
                     <br/>
                         {tipDisplay}
