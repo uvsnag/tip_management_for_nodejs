@@ -16,6 +16,7 @@ const CreateTip = () => {
     });
     const [subList, setSubList] = useState([]);
     const [isCreate, setIsCreate] = useState(true);
+    const [msg, setMsg] = useState(null);
 
 
     useEffect(() => {
@@ -97,7 +98,7 @@ const CreateTip = () => {
             )
     }
 
-    const onSave = () => {
+    const onSave = (e) => {
         var idParent = (_.isNull(idParentChange) || idParentChange.length === 0) ? tipDetail.idParent : idParentChange
         fetch(constant.BASE_URL + 'notes/save', {
             method: 'POST',
@@ -116,10 +117,17 @@ const CreateTip = () => {
                 typeUpdate: _.isNull(index) ? 'insert' : 'update',
             })
         })
-            .then(
-                // history.push('/new-location')
-                // this.props.history.push("/")
-            )
+        .then(
+            (result) => {
+                setMsg("successfuly!");
+            },
+            (error) => {
+                setMsg(`error:${error}`);
+            }
+            // history.push('/new-location')
+            // this.props.history.push("/")
+        )
+        e.preventDefault();
     }
 
     const handleChange = (value, typeName) => {
@@ -226,10 +234,11 @@ const CreateTip = () => {
                     <div>
                         <br />
                         <div>
-                            <input type="submit" value="Save" onClick={() => onSave()} />
+                            <input type="submit" value="Save" onClick={(e) => onSave(e)} />
                         </div>
                     </div>
                 </form>
+                <div >{msg}</div>
             </div>
             {/* <button onClick ={()=> this.test()}>fx</button> */}
             {/* <Editor /> */}

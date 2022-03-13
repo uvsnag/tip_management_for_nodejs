@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './style/style.css';
 import constant from "./common/constants";
 import _ from 'lodash';
+import { Navigate } from "react-router-dom";
 
 class CreateMaster extends React.Component {
 
@@ -24,6 +25,7 @@ class CreateMaster extends React.Component {
             categoryInfo: {
 
             },
+            msg: null
         };
     }
     componentDidMount() {
@@ -34,7 +36,8 @@ class CreateMaster extends React.Component {
 
         }, () => {
             if (_.isNull(this.state.typeCategory)) {
-                //reload browser after save
+                //return to homepage after save
+             
                 // window.location.replace("http://" + window.location.host);
             }
             this.setState(
@@ -75,8 +78,8 @@ class CreateMaster extends React.Component {
                 }
             )
     }
-    onSave() {
-
+    onSave(e) {
+        
         const idParent = (this.state.idParent)?this.state.idParent:this.state.typeCategory.idParent;
         fetch(constant.BASE_URL + (this.state.typeCategory === 'sub' ? "subcategories" : "categorymasters")+'/save', {
             method: 'POST',
@@ -97,10 +100,20 @@ class CreateMaster extends React.Component {
             })
         })
             .then(
+                (result) => {
+                    this.setState({
+                        msg: "successfuly!",
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        msg: `error:${error}`,
+                    });
+                }
                 // history.push('/new-location')
                 // this.props.history.push("/")
             )
-
+            e.preventDefault();
     }
 
     handleChange(event, typeName) {
@@ -175,10 +188,11 @@ class CreateMaster extends React.Component {
                         <div>
                             <br />
                             <div>
-                                <input type="submit" value="Save" onClick={() => this.onSave()} />
+                                <input type="submit" value="Save" onClick={(e) => this.onSave(e)} />
                             </div>
                         </div>
                     </form>
+                            <div >{this.state.msg}</div>
                 </div>
 
             </div>
