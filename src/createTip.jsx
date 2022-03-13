@@ -24,7 +24,8 @@ const CreateTip = () => {
         setIndex(idTmp);
         setTipDetail(tipDetail => ({ ...tipDetail, idParent: idParentTmp, }));
         if (_.isNull(idParentTmp)) {
-            window.location.replace("http://" + window.location.host);
+            //reload browser after save
+                // window.location.replace("http://" + window.location.host);
         }
         if (!_.isNull(idTmp)) {
             setIsCreate(false);

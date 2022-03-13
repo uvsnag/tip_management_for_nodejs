@@ -16,3 +16,5 @@ https://viblo.asia/p/deploy-ung-dung-reactjs-len-github-pages-1VgZvw3MlAw
 
 3. Chạy deploy app
   npm run deploy
+
+4. github page -> chọn branch gh-pages

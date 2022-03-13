@@ -34,7 +34,8 @@ class CreateMaster extends React.Component {
 
         }, () => {
             if (_.isNull(this.state.typeCategory)) {
-                window.location.replace("http://" + window.location.host);
+                //reload browser after save
+                // window.location.replace("http://" + window.location.host);
             }
             this.setState(
                 {

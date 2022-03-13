@@ -54,7 +54,8 @@ class SearchResult extends React.Component {
                 // }
             }
         )
-        window.location.replace("http://" + window.location.host);
+         // reload browser after save
+        // window.location.replace("http://" + window.location.host);
     }
     search() {
         fetch(constant.BASE_URL + "search?"

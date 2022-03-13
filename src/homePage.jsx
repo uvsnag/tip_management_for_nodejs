@@ -86,7 +86,8 @@ class HomePage extends React.Component {
                 // }
             }
         )
-        window.location.replace("http://" + window.location.host);
+        // reload browser after save
+        // window.location.replace("http://" + window.location.host);
     }
     onRestore(id, type) {
         
@@ -100,7 +101,8 @@ class HomePage extends React.Component {
                 method: 'POST',
             }
         )
-        window.location.replace("http://" + window.location.host);
+         // reload browser after save
+        // window.location.replace("http://" + window.location.host);
     }
     setOpen(idCollapse) {
         var collapse = document.getElementById(`collapse${idCollapse}`);
