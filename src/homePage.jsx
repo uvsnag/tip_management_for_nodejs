@@ -35,10 +35,12 @@ class HomePage extends React.Component {
         //     this.showAll(false);
         // }, 700)
 
+        this.getAllData(false);
     }
+
+    //unsafe
     componentWillMount() {
         console.log("componentWillMount");
-        this.getAllData(false);
         // this.setOpen(null);
     }
 
@@ -61,6 +63,7 @@ class HomePage extends React.Component {
                         isLoaded: true,
                         allItems: !_.isEmpty(result) ? result : [],
                     });
+                    this.showAll(false);
                 },
                 (error) => {
                     this.setState({
@@ -68,6 +71,7 @@ class HomePage extends React.Component {
                         error
                     });
                 }
+                
             )
     }
     onDelete(id, type) {
